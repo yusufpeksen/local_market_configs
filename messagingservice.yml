@@ -21,6 +21,10 @@ spring:
     username: guest
     password: guest
 
+message:
+  exchange: notification.exchange
+  routing-key: notification.routing-key    
+
 eureka:
   instance:
     prefer-ip-address: true
