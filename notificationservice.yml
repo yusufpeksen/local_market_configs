@@ -22,7 +22,9 @@ spring:
     password: guest
 
 notification:
-  queue: notification-queue
+  exchange: notification.exchange
+  queue: notification.queue
+  routing-key: notification.routing-key
 
 eureka:
   instance:
