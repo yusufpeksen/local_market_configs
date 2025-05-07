@@ -23,7 +23,7 @@ spring:
 
 notification:
   exchange: notification.exchange
-  queue: notification.queue
+  queue: message-notification-queue
   routing-key: notification.routing-key
 
 eureka:
