@@ -1,3 +1,18 @@
+spring:
+  application:
+    name: listingservice
+  datasource:
+    url: jdbc:mysql://localhost:3308/marketplace_listings?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: marketplace-test
+    password: 12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    format_sql: true
+
 info:
   app:
     name: "listingservice"
