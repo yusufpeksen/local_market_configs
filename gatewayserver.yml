@@ -6,20 +6,20 @@ spring:
           enabled: false
           lowerCaseServiceId: true
       routes:
-        - id: userservice
-          uri: lb://USERSERVICE
+        - id: user-service
+          uri: lb://user-service
           predicates:
             - Path=/api/user/**
-        - id: listingservice
-          uri: lb://LISTINGSERVICE
+        - id: listing-service
+          uri: lb://listing-service
           predicates:
             - Path=/api/listings/** 
-        - id: messagingservice
-          uri: lb://MESSAGINGSERVICE
+        - id: messaging-service
+          uri: lb://messaging-service
           predicates:
             - Path=/api/messages/**
-        - id: notificationservice
-          uri: lb://NOTIFICATIONSERVICE
+        - id: notification-service
+          uri: lb://notification-service
           predicates:
             - Path=/api/notifications/**
 
@@ -30,7 +30,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: "http://localhost:8070/eureka/"
+      defaultZone: "http://eureka-server/eureka/"
 
 management:
   endpoints:
