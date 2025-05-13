@@ -2,11 +2,8 @@ spring:
   application:
     name: listingservice
 
-  config:
-    import: optional:configserver:http://config-server:8071/
-
   datasource:
-    url: jdbc:mysql://mysql-listing:3308/listingdb
+    url: jdbc:mysql://mysql-listing:3306/listingdb
     username: marketplace-test
     password: 12345
     driver-class-name: com.mysql.cj.jdbc.Driver
