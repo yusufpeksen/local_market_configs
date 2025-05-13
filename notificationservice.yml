@@ -3,7 +3,7 @@ spring:
     name: notificationservice
 
   datasource:
-    url: jdbc:mysql://mysql-notification:3310/notificationdb
+    url: jdbc:mysql://mysql-notification:3306/notificationdb
     username: marketplace-test
     password: 12345
     driver-class-name: com.mysql.cj.jdbc.Driver
