@@ -2,7 +2,7 @@ spring:
   application:
     name: listingservice
   datasource:
-    url: jdbc:mysql://localhost:3308/marketplace_listings?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://mysql-listing:3308/listingdb
     username: marketplace-test
     password: 12345
     driver-class-name: com.mysql.cj.jdbc.Driver
