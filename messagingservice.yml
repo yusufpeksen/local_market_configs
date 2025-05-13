@@ -3,7 +3,7 @@ spring:
     name: messagingservice
 
   datasource:
-    url: jdbc:mysql://mysql-messaging:3309/messagingdb
+    url: jdbc:mysql://mysql-messaging:3306/messagingdb
     username: marketplace-test
     password: 12345
     driver-class-name: com.mysql.cj.jdbc.Driver
