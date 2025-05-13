@@ -3,7 +3,7 @@ spring:
     name: notificationservice
 
   datasource:
-    url: jdbc:mysql://localhost:3308/marketplace_notifications?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://mysql-notification:3310/notificationdb
     username: marketplace-test
     password: 12345
     driver-class-name: com.mysql.cj.jdbc.Driver
