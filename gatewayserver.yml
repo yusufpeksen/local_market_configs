@@ -7,19 +7,19 @@ spring:
           lowerCaseServiceId: true
       routes:
         - id: user-service
-          uri: lb://user-service
+          uri: lb://userservice
           predicates:
             - Path=/api/user/**
         - id: listing-service
-          uri: lb://listing-service
+          uri: lb://listingservice
           predicates:
             - Path=/api/listings/** 
         - id: messaging-service
-          uri: lb://messaging-service
+          uri: lb://messagingservice
           predicates:
             - Path=/api/messages/**
         - id: notification-service
-          uri: lb://notification-service
+          uri: lb://notificationservice
           predicates:
             - Path=/api/notifications/**
 
