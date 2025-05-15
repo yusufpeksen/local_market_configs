@@ -25,6 +25,12 @@ jwt:
   secret-key: PfbQBaBhujiLiq1htDnUaCO60rvxBLDzCclt/cLGh8g=
   expiration: 86400000
 
+r2:
+  accessKeyId: 3181ba84d2ec95fa1d5678c23c5dc075
+  secretAccessKey: 8216132a70425a8c584c53e5c68bcccc89145ab1d62996a0917c658b1608fd8c
+  endpoint: https://f268dbfa80276e12efddf04a916173c5.r2.cloudflarestorage.com/local-market-users
+  bucketName: local-market-users
+
 eureka:
   instance:
     prefer-ip-address: true
