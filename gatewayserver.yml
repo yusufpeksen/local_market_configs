@@ -22,12 +22,6 @@ spring:
           uri: lb://notificationservice
           predicates:
             - Path=/api/notifications/**
-        - id: messaging-service-ws
-          uri: lb://messagingservice
-          predicates:
-            - Path=/ws/**
-          filters:
-            - name: PreserveHostHeader
 
 eureka:
   instance:
