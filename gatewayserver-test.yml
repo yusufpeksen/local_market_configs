@@ -1,0 +1,61 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: user-service
+          uri: lb://userservice
+          predicates:
+            - Path=/api/user/**
+        - id: listing-service
+          uri: lb://listingservice
+          predicates:
+            - Path=/api/listings/** 
+        - id: messaging-service
+          uri: lb://messagingservice
+          predicates:
+            - Path=/api/messages/**
+        - id: notification-service
+          uri: lb://notificationservice
+          predicates:
+            - Path=/api/notifications/**
+        - id: messaging-service-ws
+          uri: lb://messagingservice
+          predicates:
+            - Path=/ws/**
+          filters:
+            - name: PreserveHostHeader
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: "http://localhost:8070/eureka/"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      access: read_only
+  info:
+    env:
+      enabled: true
+
+jwt:
+  secret-key: PfbQBaBhujiLiq1htDnUaCO60rvxBLDzCclt/cLGh8g=
+  expiration: 86400000
+
+info:
+  app:
+    name: "gatewayserver"
+    description: "Edge TEST Server for Local Market Project"
+    version: ${app.version:0.0.1}

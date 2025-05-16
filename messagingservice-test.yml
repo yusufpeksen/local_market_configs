@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: messagingservice
+
+  datasource:
+    url: jdbc:mysql://localhost:3309/messagingdb
+    username: marketplace-test
+    password: 12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    format_sql: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+messaging:
+  exchange: message-exchange
+  routing-key: message.notification
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+
+info:
+  app:
+    name: "messagingservice"
+    description: "Messaging TEST Service for Local Market Project"
+    version: 0.0.1
