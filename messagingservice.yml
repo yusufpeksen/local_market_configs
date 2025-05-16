@@ -22,8 +22,8 @@ spring:
     password: guest
 
 messaging:
-  exchange: notification.exchange
-  routing-key: notification.routing-key    
+  exchange: message-exchange
+  routing-key: message.notification 
 
 eureka:
   instance:
