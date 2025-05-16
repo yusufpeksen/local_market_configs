@@ -17,7 +17,7 @@ spring:
         - id: messaging-service
           uri: lb://messagingservice
           predicates:
-            - Path=/api/chat/**
+            - Path=/api/messages/**
         - id: notification-service
           uri: lb://notificationservice
           predicates:
