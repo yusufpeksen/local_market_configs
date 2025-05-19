@@ -14,10 +14,6 @@ spring:
           uri: lb://listingservice
           predicates:
             - Path=/api/listings/** 
-        - id: websocket-messaging
-          uri: lb:ws://messagingservice
-          predicates:
-            - Path=/ws/**
         - id: messaging-service
           uri: lb://messagingservice
           predicates:
