@@ -25,6 +25,10 @@ messaging:
   exchange: message-exchange
   routing-key: message.notification 
 
+jwt:
+  secret-key: PfbQBaBhujiLiq1htDnUaCO60rvxBLDzCclt/cLGh8g=
+  expiration: 86400000
+
 eureka:
   instance:
     prefer-ip-address: true
