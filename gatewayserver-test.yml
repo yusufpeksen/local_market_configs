@@ -10,24 +10,73 @@ spring:
           uri: lb://userservice
           predicates:
             - Path=/api/user/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: user-service-cb
+                fallbackUri: "forward:/fallback/user-service"
         - id: listing-service
           uri: lb://listingservice
           predicates:
-            - Path=/api/listings/** 
+            - Path=/api/listings/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: listing-service-cb
+                fallbackUri: "forward:/fallback/listing-service"
         - id: messaging-service
           uri: lb://messagingservice
           predicates:
             - Path=/api/messages/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: messaging-service-cb
+                fallbackUri: "forward:/fallback/messaging-service"
         - id: notification-service
           uri: lb://notificationservice
           predicates:
             - Path=/api/notifications/**
-        - id: messaging-service-ws
-          uri: lb://messagingservice
-          predicates:
-            - Path=/ws/**
           filters:
-            - name: PreserveHostHeader
+            - name: CircuitBreaker
+              args:
+                name: notification-service-cb
+                fallbackUri: "forward:/fallback/notification-service"
+
+  resilience4j:
+    circuitbreaker:
+      instances:
+        user-service-cb:
+          registerHealthIndicator: true
+          failureRateThreshold: 50
+          slidingWindowSize: 10
+          waitDurationInOpenState: 10000ms
+          permittedNumberOfCallsInHalfOpenState: 3
+          minimumNumberOfCalls: 5
+
+        listing-service-cb:
+          registerHealthIndicator: true
+          failureRateThreshold: 50
+          slidingWindowSize: 10
+          waitDurationInOpenState: 10000ms
+          permittedNumberOfCallsInHalfOpenState: 3
+          minimumNumberOfCalls: 5
+
+        messaging-service-cb:
+          registerHealthIndicator: true
+          failureRateThreshold: 50
+          slidingWindowSize: 10
+          waitDurationInOpenState: 10000ms
+          permittedNumberOfCallsInHalfOpenState: 3
+          minimumNumberOfCalls: 5
+
+        notification-service-cb:
+          registerHealthIndicator: true
+          failureRateThreshold: 50
+          slidingWindowSize: 10
+          waitDurationInOpenState: 10000ms
+          permittedNumberOfCallsInHalfOpenState: 3
+          minimumNumberOfCalls: 5
 
 eureka:
   instance:
@@ -59,3 +108,4 @@ info:
     name: "gatewayserver"
     description: "Edge TEST Server for Local Market Project"
     version: ${app.version:0.0.1}
+
