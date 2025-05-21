@@ -43,40 +43,40 @@ spring:
                 name: notification-service-cb
                 fallbackUri: "forward:/fallback/notification-service"
 
-  resilience4j:
-    circuitbreaker:
-      instances:
-        user-service-cb:
-          registerHealthIndicator: true
-          failureRateThreshold: 50
-          slidingWindowSize: 10
-          waitDurationInOpenState: 10000ms
-          permittedNumberOfCallsInHalfOpenState: 3
-          minimumNumberOfCalls: 5
+resilience4j:
+  circuitbreaker:
+    instances:
+      user-service-cb:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 2
+        waitDurationInOpenState: 3s
+        permittedNumberOfCallsInHalfOpenState: 1
 
-        listing-service-cb:
-          registerHealthIndicator: true
-          failureRateThreshold: 50
-          slidingWindowSize: 10
-          waitDurationInOpenState: 10000ms
-          permittedNumberOfCallsInHalfOpenState: 3
-          minimumNumberOfCalls: 5
+      listing-service-cb:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 2
+        waitDurationInOpenState: 3s
+        permittedNumberOfCallsInHalfOpenState: 1
 
-        messaging-service-cb:
-          registerHealthIndicator: true
-          failureRateThreshold: 50
-          slidingWindowSize: 10
-          waitDurationInOpenState: 10000ms
-          permittedNumberOfCallsInHalfOpenState: 3
-          minimumNumberOfCalls: 5
+      messaging-service-cb:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 2
+        waitDurationInOpenState: 3s
+        permittedNumberOfCallsInHalfOpenState: 1
 
-        notification-service-cb:
-          registerHealthIndicator: true
-          failureRateThreshold: 50
-          slidingWindowSize: 10
-          waitDurationInOpenState: 10000ms
-          permittedNumberOfCallsInHalfOpenState: 3
-          minimumNumberOfCalls: 5
+      notification-service-cb:
+        registerHealthIndicator: true
+        failureRateThreshold: 50
+        slidingWindowSize: 5
+        minimumNumberOfCalls: 2
+        waitDurationInOpenState: 3s
+        permittedNumberOfCallsInHalfOpenState: 1
 
 eureka:
   instance:
