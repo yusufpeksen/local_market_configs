@@ -40,12 +40,9 @@ management:
       exposure:
         include: "*"
   health:
-    readinessstate:
+    readiness-state:
       enabled: true
-    livenessstate:
-      enabled: true
-  info:
-    env:
+    liveness-state:
       enabled: true
   endpoint:
     shutdown:
@@ -53,6 +50,9 @@ management:
     health:
       probes:
         enabled: true
+  info:
+    env:
+      enabled: true
 
 endpoints:
   shutdown:

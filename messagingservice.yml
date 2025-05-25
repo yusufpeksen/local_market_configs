@@ -23,7 +23,7 @@ spring:
 
 messaging:
   exchange: message-exchange
-  routing-key: message.notification 
+  routing-key: message.notification
 
 jwt:
   secret-key: PfbQBaBhujiLiq1htDnUaCO60rvxBLDzCclt/cLGh8g=
@@ -38,8 +38,26 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka-server:8070/eureka/
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+
 info:
   app:
     name: "messagingservice"
     description: "Messaging Service for Local Market Project"
-    version: 1.0.0
+    version: "1.0.0"
