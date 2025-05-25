@@ -97,19 +97,19 @@ management:
         include: "*"
   endpoint:
     gateway:
-      access: read_only
-  health:
-    readiness-state:
-      enabled: true
-    liveness-state:
-      enabled: true
-  endpoint:
+      access: read-only
     health:
       probes:
         enabled: true
+  health:
+    readinessState:
+      enabled: true
+    livenessState:
+      enabled: true
   info:
     env:
       enabled: true
+
 
 jwt:
   secret-key: PfbQBaBhujiLiq1htDnUaCO60rvxBLDzCclt/cLGh8g=
