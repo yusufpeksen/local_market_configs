@@ -58,6 +58,14 @@ management:
     env:
       enabled: true
 
+logging:
+  level:
+    com:
+      localmarket:
+        user_service: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
+
 info:
   app:
     name: "userservice"
